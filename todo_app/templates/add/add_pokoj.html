@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Klient Formulář</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cache.marriott.com/is/image/marriotts7prod/rz-mcorz-exterior-at-night-11671:Feature-Hor?wid=1920&fit=constrain') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .menu {
+            background: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .menu a, .menu button {
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            background: #333;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu a:hover, .menu button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <a href="{% url 'home' %}">Domů</a>
+    <button onclick="location.href='{% url 'get_pokoje' %}'">Zobrazit pokoje</button>
+    <button onclick="location.href='{% url 'get_klienti' %}'">Klienti</button>
+    <button onclick="location.href='{% url 'get_rezervace' %}'">Rezervace</button>
+</div>
+<div class="container">
+    <h1>Klient Formulář</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary d-block mx-auto">Odeslat</button>
+    </form>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotelový Systém</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cache.marriott.com/is/image/marriotts7prod/rz-mcorz-exterior-at-night-11671:Feature-Hor?wid=1920&fit=constrain') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container-custom {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .box {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Domů</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <button class="btn btn-dark nav-link" onclick="location.href='{% url 'get_pokoje' %}'">Zobrazit pokoje</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-dark nav-link" onclick="location.href='{% url 'get_klienti' %}'">Klienti</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-dark nav-link" onclick="location.href='{% url 'get_rezervace' %}'">Rezervace</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-custom">
+    <h1>Vítejte v našem hotelovém systému!</h1>
+    <p>Prozkoumejte různé části systému pomocí menu výše.</p>
+</div>
+
+<div class="box container-custom">
+    <h2>Prohlédněte si naše pokoje</h2>
+    <p>Prozkoumejte různé pokoje, které nabízíme.</p>
+    <button class="btn btn-primary" onclick="location.href='{% url 'get_pokoje' %}'">Zobrazit pokoje</button>
+</div>
+
+<div class="box container-custom">
+    <h2>Vytvořte registraci</h2>
+    <p>Vytvořte si registraci pro snadnější rezervace.</p>
+    <button class="btn btn-primary" onclick="location.href='{% url 'add_rezervace' %}'">Vytvořit registraci</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
